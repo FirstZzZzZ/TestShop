@@ -9,7 +9,7 @@ django-admin-interface==0.21.0
 django-admin-shortcuts==2.0.0
 django-Admincustom==0.0.1
 django-colorfield==0.7.2
-django-crispy-forms==1.14.0
+django-crispy-forms==1.13.0
 django-daterange-filterspec==2.0.4
 django-daterangefilter==1.0.0
 django-extensions==3.2.1
