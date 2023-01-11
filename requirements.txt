@@ -45,4 +45,4 @@ tzdata==2022.2
 unicodedata2==14.0.0
 urllib3==1.26.12
 whitenoise==5.3.0
-zopfli==0.2.1
+zopfli==0.1.9
