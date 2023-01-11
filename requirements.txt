@@ -4,7 +4,7 @@ certifi==2022.9.14
 charset-normalizer==2.1.1
 colorama==0.4.5
 dj-database-url==1.2.0
-Django==4.0
+Django==3.2.16
 django-admin-interface==0.21.0
 django-admin-shortcuts==2.0.0
 django-admincharts==0.4.1
