@@ -7,7 +7,6 @@ dj-database-url==1.2.0
 Django==3.2.16
 django-admin-interface==0.21.0
 django-admin-shortcuts==2.0.0
-django-admincharts==0.4.1
 django-Admincustom==0.0.1
 django-colorfield==0.7.2
 django-crispy-forms==1.14.0
