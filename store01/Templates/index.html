@@ -1,0 +1,294 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% load humanize %}
+{% block content%}
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="/ShopKaset/ShopKaset/Css.css" rel="stylesheet" >
+
+<body>
+  <section class="hero">
+    <div id="myCarousel" class="carousel slide font1 hero-inner" data-bs-ride="carousel" >
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+      </div>
+      <div class="carousel-inner">  
+        <div class="carousel-item active font1">
+          <div class="carousel-image1"></div>
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1 style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c"><strong>ส้มโอขาวแตงกวา</strong></h1> 
+              <h5 style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c"><strong>เป็นไม้ผลท้องถิ่นที่สำคัญทางด้านเศรษฐกิจของจังหวัดชัยนาท ขนาดผลกลมโตปานกลาง เนื้อกุ้งใหญ่สีขาวแห้ง หวานฉ่ำ รสอร่อย เป็นไม้ผลที่ปลูกสืบต่อกันมานานกว่า 100 ปี ถึงปัจจุบัน</strong></h5>
+
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item font1">
+          <div class="carousel-image2"></div>
+          
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c"><strong>ขาวเจ๊กชัยนาท</strong></h1> 
+              <h5 style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c"><strong>“ขาวเจ๊ก” ข้าวพื้นเมืองสายพันธุ์ดี รสชาติอร่อยและมีกลิ่นหอมอ่อนๆไม่แพ้ข้าวหอมมะลิ เป็นข้าวเจ้านาปีที่มีเมล็ดค่อนข้างยาวใหญ่และอ้วน ที่สำคัญสีของเปลือกเมล็ดเป็นสีฟางอ่อนสวย</strong></h5>
+
+            </div>
+          </div>
+        </div>
+        <!-- <div class="carousel-item">
+          <svg class="bd-placeholder-img" width="1300" height="372" scr="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"></rect></svg>
+  
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <h1 style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c"><strong>Test 01 02 03</strong></h1> 
+              <h5 style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c"><strong>Test 01 02 03</strong></h5>
+
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+  </body>
+
+<body>
+  <div class="container font1 " >
+    <div class="row my-4" >
+    {% for product05 in product04 %}
+    <div class="gallery col-lg-4 col-md-6" >
+      <div class="content card69" style="width:100%">
+        <img  class="img2" style="object-fit:cover;" src="{{product05.image.url}}" >
+        <h1></h1>
+        <h2>{{product05.name}}</h2>
+        <h5>{{product05.price|intcomma}} ฿</h5>
+        <p class="card-text">{{product05.description | slice:":0"}}</p>
+        <a href="{{product05.get_url}}">ข้อมูลสินค้า</a>
+        <h1></h1>
+        {% if product05.stock <= 0 %}
+          <button class="buy-1 text-dark button2" aria-disabled>สินค้าหมด</button>
+        {% else %}
+        <a href="{%url 'addCart' product05.id %}"><button class="buy-1 button2">เพิ่มลงตะกร้า</button></a>
+        {% endif %}
+      </div>
+    </div>
+    </body>
+    {% endfor %}
+
+</div>
+<nav aria-label="pagination">
+  {% if product04.paginator.num_pages > 1 %}
+  <ul class="pagination">
+        {% for page_number in product04.paginator.page_range %}
+          <li class="page-item 
+          {% if product04.number == page_number %}
+                disabled 
+          {% endif %}
+          "><a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a></li>
+        {% endfor %}
+  </ul>
+  {% endif %}
+</nav>
+</div>
+
+
+<style >
+  /* body{
+  margin: 0;
+  font-family:Nunito Sans;
+  }
+  h3{
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+  padding-top: 10px;
+  }
+  a{
+  text-decoration: none;
+  } */
+  /* .gallery{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  } */
+  .carousel-image1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
+    background-size: cover;
+    background-position: center;
+      width: 1920px;
+      height: 550px;
+      background-image: url('https://sv1.picz.in.th/images/2023/01/10/J2h6Uy.jpg') ;
+      object-fit: cover;
+
+  }
+  .carousel-image2 {
+        background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
+        background-size: cover;
+        background-position: center;
+          width: 1920px;
+          height: 550px;
+          background-image: url('https://sv1.picz.in.th/images/2023/01/10/J2hF7u.jpg');
+          object-fit: cover;
+
+  }
+
+    .hero {
+      width: 100%;
+      height: 100vh;
+      background-image: url('hero-image.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      object-fit: cover;
+
+    }
+
+
+.card69{
+  background-color:#F9F8F3
+}
+
+  .content{
+  width: 24%;
+  margin: 15px;
+  box-sizing: border-box;
+  float: left;
+  text-align: center;
+  border-radius:10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: .4s;
+  }
+  .content:hover{
+  box-shadow: 0 0 50px rgba(33,33,33,.2);
+  transform: translate(0px, -15px);
+  transition: .6s;
+  }
+  .img2{
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  background-color: #f9f8f3;
+  }
+  p{
+  text-align: center;
+  color: #b2bec3;
+  padding: 0 8px;
+  }
+  h6{
+  font-size: 26px;
+  text-align: center;
+  color: #222f3e;
+  margin: 0;
+  }
+
+  /* ul{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  } */
+/* 
+  li{
+  padding: 5px;
+  
+  } */
+  .fa{
+  color: #ff9f43;
+  font-size: 26px;
+  transition: .4s;
+  }
+  .fa:hover{
+  transform: scale(1.3);
+  transition: .6s;
+  }
+  .button2{
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+  width: 100%;
+  padding: 15px;
+  border:0px;
+  outline: none;
+  cursor: pointer;
+  margin-top: 5px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  }
+  .buy-1{
+  background-color: #82b400;
+  }
+  .buy-2{
+  background-color: #3b3e6e;
+  }
+  .buy-3{
+  background-color: #0b0b0b;
+  }
+  @media(max-width: 1000px){
+  .content{
+  width: 46%;
+  }
+  }
+  @media(max-width: 750px){
+  .content{
+  width: 100%;
+  }
+  }
+  
+  .hero {
+    /* Sizing */
+    width: 100%;
+    height: 55vh;
+    
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Text styles */
+    text-align: center;
+    
+    /* Background styles */
+    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.hero h1 {
+  /* Text styles */
+  font-size: 3em;
+  
+  /* Margins */
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+
+
+</style>
+</head>
+
+
+
+  {% endblock%} 
+
+  

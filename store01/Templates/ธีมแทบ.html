@@ -1,0 +1,285 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+	@import url("https://fonts.googleapis.com/css?family=Josefin+Sans|Mountains+of+Christmas&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: Prompt;
+}
+
+.wrapper .multi_color_border{
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #82B400 0% , #82B400 25%, #494949 25%, #494949 50%, #82B400 50%, #82B400 75%, #494949 75%, #494949 100%);
+}
+
+.wrapper .top_nav{
+  margin-top: 0px;
+  width: 100%;
+  height: 65px;
+  background: #F9F8F3;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .top_nav .left{
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .top_nav .left .logo p{
+  font-size: 24px;
+  font-weight: bold;
+  color: #494949;
+  font-family: "Mountains of Christmas", cursive;
+  margin-right: 25px;
+}
+
+.wrapper .top_nav .left .logo p span{
+  color: #82B400;
+  font-family: "Mountains of Christmas", cursive;
+}
+
+.wrapper .top_nav .left .search_bar input[type="text"]{
+  border: 1px solid #666666;
+  padding: 5px 10px; 
+  outline: none;
+  transition: all 0.5s linear;
+}
+
+.wrapper .top_nav .left .search_bar input[type="text"]:focus{
+  width: 250px;
+}
+
+.wrapper .top_nav .right ul{
+  display: flex;
+}
+
+.wrapper .top_nav .right ul li{
+  margin: 0 5px;
+}
+
+
+
+.wrapper .top_nav .right ul li a{
+  display: block;
+  padding: 8px 10px;
+  color: #666666;
+}
+
+
+.wrapper .bottom_nav{
+  width: 100%;
+  background: #f9f9f9;
+  height: 45px;
+  padding: 0 50px;
+}
+
+.wrapper .bottom_nav ul{
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .bottom_nav ul li a{
+  color: #494949;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.wrapper .banner img{
+  width: 100%;
+  height: 400px;
+}
+  
+	.nav01 {	
+        background-color: #F9F8F3;
+		/* background: linear-gradient(to right, #d9ff77, #134115, #40E0D0); */
+            }
+        .nav02 {	
+        background-color: #134115;
+            }
+        .nav03 {	
+        background-color: #82B400;
+        border-radius: 30px;
+            }
+        .font1{
+              font-family: Prompt;
+              font-weight: 300;
+              color: #40403F;
+            }
+        .font2{
+              font-family: Prompt;
+              font-weight: 300;
+              color: #40403F;
+              border:#82B400 ;
+            }
+        .font3{
+              font-family: Prompt;
+              font-weight: 300;
+              color: #F9F8F3;
+            }
+        
+            .searchbar{
+            margin-bottom: auto;
+            margin-top: auto;
+            height: 38px;
+            background-color: #ffff;
+            border-radius: 30px;
+            padding: 5px;
+            }
+        
+            .search_input{
+            color: white;
+            border: 0;
+            outline: 0;
+            background: none;
+            width: 350px;
+            caret-color:transparent;
+            line-height: 24px;
+			transition-delay: 30s, ;
+            transition: width 1s;
+            }
+        
+            .searchbar:hover > .search_input{
+            padding: 0 10px;
+            width: 500px;
+            caret-color: #82B400;
+            transition: width 0.4s linear;
+            }
+        
+            .searchbar:hover > .search_icon{
+            background: white;
+            color: #82B400;
+            }
+        
+            .search_icon{
+            height: 28px;
+            width: 28px;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color:#82B400;
+            text-decoration:none;
+            }
+    
+            .dropdown-item:active {
+            background-color: #82B400 !important;
+            color: #ffff !important;
+            
+            }
+    
+            .navbar-brand01 {
+              margin-left: 100px;
+            }
+            .navbar01 {
+              
+              min-height: 135px;
+            }
+            .navbar02 {
+              background-color: #82B400 !important;
+            }
+            
+
+
+        
+</style>
+
+<!-- ------------------------------------- -->
+
+<body>
+
+<div     class="wrapper navbar-expand-md rounded sticky-top ">
+      <div class="multi_color_border navbar-expand-md rounded navbar-nav"></div>
+      <div class="top_nav navbar01">
+          <div class="left">
+            <a class="navbar-brand navbar-brand01 navbar-expand-md rounded" href="/"><img src="https://i.imgur.com/abAikdc.png" style="height: 115px;"></a>
+            <form class="searchform pr-lg-3" action="{% url 'search' %}", method="GET" id="navbarResponsive">
+              <div class="d-flex justify-content-lg-start h-100">
+                <div class="searchbar">
+                <input class="search_input" style="color: #40403F" type="text" name="title" placeholder="Search...">
+                <button type="submit" class="search_icon font2"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+        </div> 
+        <div class="right navbar-expand-md rounded navbar-nav">
+
+          <ul>
+            <ul class="nav-item pr-lg-3 mt-1 navbar-nav">
+              <a style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c " class="nav-link text-light text-uppercase font-weight-bold" href="{% url 'cartdetail' %}">
+                <i class="fas fa-shopping-cart"></i>
+                {% if item_count > 0 %}
+                {{item_count}}
+                {% else  %}
+                  0  
+                {% endif %}
+              </a>
+            </ul>
+            <ul class="navbar-nav ml-auto font1 navbar-expand-md rounded" >
+              {% if request.user.is_authenticated and request.user.first_name %}
+              <div class="dropdown navbar-nav">
+                <button class="btn dropdown-toggle" type="button" style="background-color: #82B400;border-radius: 10px; color: #F9F8F3 " id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  สวัสดีคุณ, {{ request.user.first_name }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="{% url 'profile' %}">ข้อมูลส่วนตัว</a></li>
+                  <li><a class="dropdown-item" href="{% url 'signOut' %}">ออกจากระบบ</a></li>
+                </div>
+              </div>
+      
+              {% else %}
+              <li class="nav-item active" >
+                <a class="btn" style="background-color: #82B400;border-radius: 10px; color: #F9F8F3 " href="{% url 'signUp' %}">ลงทะเบียน</a>
+              </li>
+              <li class="nav-item active "  >
+                <a class="btn" style="background-color: #82B400;border-radius: 10px; color: #F9F8F3 " href="{% url 'signIn' %}">เข้าสู่ระบบ</a>
+              </li>	
+              {% endif %}
+            
+
+
+          </ul>
+        </div>
+      </div>
+      <div class="bottom_nav navbar02 ">
+        <ul>
+          <div class="nav-item active ">
+            <ul class="nav-item active" aria-labelledby="dropdownMenuButton">           
+              {% for category in links%}
+              <li class="nav-item active mt-1 pr-lg-3"  >
+                <a class="btn" style="background-color: #82B400;border-radius: 10px; color: #F9F8F3 " href="{{category.get_url}}">{{category.name}}</a>
+                {% endfor %}
+              </li>
+                
+            </ul>
+            </div>
+        </ul>
+    </div>
+    
+
+  </div>
+  
+  </body>
+
+	
+	<!-- ------------------------------------- -->

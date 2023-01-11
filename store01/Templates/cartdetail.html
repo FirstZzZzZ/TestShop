@@ -1,0 +1,239 @@
+{% extends 'layouts.html' %}
+{% load humanize %}
+{% block content%}
+{% load static %}
+
+<div class="container mt-5 font11">
+    {% if not cart_items%}
+        <div class="alert alert-danger my-2" role="alert">
+            <b>ไม่มีสินค้าในตะกร้า</b>
+        </div>
+    {%else%}
+    <div class="table-responsive font11 mt-5">
+        <table class="table table-condensed">
+            <thead>
+                <tr class="cart_menu">
+                    <td class="image">รายการสินค้า</td>
+                    <td class="description"></td>
+                    <td class="price">ราคา</td>
+						<td class="quantity">จำนวน</td>
+						<td class="quantity2">หน่วย</td>
+                    <td class="total">รวม</td>
+
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td class="cart_product">
+                        <a href="{{item.product.get_url}}"><img src="{{item.product.image.url}}" alt="" width="auto" height="100px"></a>
+                    </td>
+                    <td class="cart_description">
+                        <h5><a href="{{item.product.get_url}}">{{item.product.name}}</a></h5>
+                    </td>
+                    <td class="cart_price">
+                        <p>{{item.product.price|intcomma}}</p>
+                    </td>
+                    <td class="cart_quantity">
+                            <p>{{item.quantity}}</p>		
+					</td>
+					<td class="cart_quantity2">
+							<p>{{item.product.unit}}</p>
+
+					
+
+
+                        </div>
+                    </td>
+                    <td class="cart_total">
+                        <p class="cart_total_price">{{ item.sub_total|intcomma}} </p>
+						
+                    </td>
+					
+					<td>
+						<div class="input-group " style="max-width: 120px;">
+							<div class="input-group-prepend">
+							  {% if item.quantity == 1 %}
+							  <a href="{% url 'removefullCart' item.product.id %}" class="btn btn-outline-light js-btn-minus mr-2	" style="background-color: #82B400;" onclick="return confirm('คุณต้องการลบสินค้าออกจากตะกร้าหรือไม่ ?')" type="button">&minus;</a>
+							  {% else %}
+							  <a href="{% url 'removeCart' item.product.id %}" class="btn btn-outline-light js-btn-minus mr-2	" style="background-color: #82B400;" type="button">&minus;</a>
+							  {% endif %}
+							</div>
+								<a href="{%url 'addCart' item.product.id %}" class="btn btn-outline-light js-btn-minus mr-2	" style="background-color: #82B400;" type="button">&plus;</a>
+							</div>
+						  </div>
+					</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    <h4 class="text-right font2">ยอดชำระเงินสำหรับสินค้า {{total|intcomma}} บาท</h4>
+	<h4 class="text-right frot2">+ค่าขนส่ง 50 บาท {{shipping|intcomma}}</h4>
+	
+    <form class="" action="" method="POST">
+        {% csrf_token %}
+        <script src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="{{ data_key }}"
+        data-amount="{{ stripe_total }}"
+        data-name="Kaset-Shop 2022"
+        data-description="{{ description }}"
+        data-locale="Thailand"
+        data-currency="thb"
+        data-shipping-address="true"
+        data-billing-address="true"
+        data-zip-code="true"
+		>
+        </script>
+		
+		<script>document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';</script>
+		<div class="d-flex justify-content mt-3 login_container"  >
+			<input class="btn green_btn" type="submit" value="ชำระเงินแบบออนไลน์" style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c">
+		  </div>
+      </form>
+
+<!-- ปุ่มแยกออกมาไว้ทำชำระแบบโอน -->
+<h1></h1>
+  <button type="button" class="btn green_btn" data-toggle="modal" data-target="#paymentModal" style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c">
+	ชำระแบบโอนเงิน
+  </button>
+  <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+			<a class="navbar-brand" href="/"><img src="https://i.imgur.com/abAikdc.png" style="height: 100px;"></a> <h3 class="modal-title h3" id="paymentModalLabel">Kaset-shop 2022</h3>
+		  
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body nav01">
+			<form method="post" action="{% url 'process_payment' %}" enctype="multipart/form-data">
+				{% csrf_token %}
+				<label for="money_transfer_slip green_btn">สลิปโอนเงิน:</label>
+				<input type="file" name="money_transfer_slip" accept="image/*" required>
+				<br>
+				<h1></h1>
+				<label for="ชื่อลูกค้า">ชื่อของท่าน</label>
+				<input type="text" id="ชื่อลูกค้า" name="ชื่อลูกค้า" required>
+				<br>
+				<h1></h1>
+				<label for="บ้านเลขที่ที่อยู่จัดส่ง">บ้านเลขที่:</label>
+				<input type="text" id="บ้านเลขที่ที่อยู่จัดส่ง" name="บ้านเลขที่ที่อยู่จัดส่ง" required>
+				<br>
+				<h1></h1>
+				<label for="ที่อยู่จัดส่ง">ที่อยู่จัดส่ง:</label>
+				<input type="text" id="ที่อยู่จัดส่ง" name="ที่อยู่จัดส่ง" required>
+				<br>
+				<h1></h1>
+				<label for="อีเมลลูกค้า">อีเมลของท่าน</label>
+				<input type="text" id="อีเมลลูกค้า" name="อีเมลลูกค้า" required>
+				<br>
+				<h1></h1>
+				<label for="รหัสไปรษณีย์">รหัสไปรษณีย์</label>
+				<input type="text" id="รหัสไปรษณีย์" name="รหัสไปรษณีย์" required>
+				<br>
+				<h1></h1>
+				<h1></h1>
+				<h1></h1>
+				<h1></h1>	
+				<h5 class="text-right font2">ยอดชำระเงินสำหรับสินค้า {{total|intcomma}}  บาท</h5>
+				<h5 class="text-right frot2">+ค่าขนส่ง 50 บาท {{shipping|intcomma}}</h5>
+				<h1></h1>
+				<input type="submit" class="input font3" value="ชำระแบบโอนเงิน" style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c">
+			  </form>
+
+
+    {% endif %}
+</div>
+
+
+<style>
+ .h3 {
+	position: absolute;
+	top: 15%;
+	left: 53%;
+	transform: translate(-50%, -50%);
+  }
+  
+
+	.input[type=submit] {padding:5px 15px; background:#82B400; border:0 none !important; 
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; }
+
+	.green_btn {
+        background: #82B400 !important;
+        color: white !important;
+    }
+	
+	.button1{
+		outline-color: #82B400
+	}
+
+	.nav01 {	
+	background-color: #F9F8F3;
+		}
+	.nav02 {	
+	background-color: #134115;
+		}
+	.nav03 {	
+	background-color: #82B400;
+	border-radius: 30px;
+		}
+	.font1{
+		  font-family: Prompt;
+		  font-weight: 300;
+		  color: #40403F;
+		}
+		.font11{
+		  font-family: Prompt;
+		  font-weight: 500;
+		  font-size: 1.9ch;
+		  color: #40403F;
+		}
+	.font2{
+		  font-family: Prompt;
+		  font-weight: 500;
+		  color: #40403F;
+		  border:#82B400 ;
+		}
+	.font3{
+		  font-family: Prompt;
+		  font-weight: 300;
+		  color: #F9F8F3;
+		}
+	
+	/* .body,html{
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background: #82B400 !important;
+		} */
+		.search_icon{
+            height: 28px;
+            width: 28px;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color:#82B400;
+            text-decoration:none;
+            }
+
+		.dropdown-item:active {
+        background-color: #82B400 !important;
+		}
+	</style>
+    
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}
+

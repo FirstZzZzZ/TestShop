@@ -1,0 +1,120 @@
+{% extends 'layouts.html' %}
+{% block content%}
+{% load crispy_forms_tags %}
+
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #fff !important;
+    }
+    .user_card {
+        width: 350px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #F9F8F3;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+
+    .form_container {
+        min-height: 100%;  
+        min-height: 20vh;
+
+        align-items: center;
+    }
+
+    #form-title{
+        color: #40403F;
+        
+    }
+
+    .login_btn {
+        width: 100%;
+        background: #82B400 !important;
+        color: white !important;
+    }
+    .login_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+    .login_container {
+        padding: 0 2rem;
+    }
+    .input-group-text {
+        background: #82B400 !important;
+        color: white !important;
+        border: 0 !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+    .input_user,
+    .input_pass:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+
+    #messages{
+        background-color: grey;
+        color: #fff;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .font1{
+	  font-family: Prompt;
+      font-weight: 300;
+      color: #40403F;
+
+    }
+    
+
+</style>
+<head>
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+</head>
+<body>
+    <div class="container h-100 mt-4 font1">
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+                <div class="d-flex justify-content-center font1 "style="text-shadow: 0 0 0.5px #1d1d1d, 0 0 1px #7c7c7c">
+                    <h3 id="form-title">สมัครสมาชิก</h3>
+                </div>
+                <div class="d-flex justify-content-center form_container">
+
+                    <form method="POST" action="">
+                        <div class="input-group-center mt-4" style="text-shadow: 0 0 0.25px #1d1d1d, 0 0 1px #7c7c7c">
+                            {% csrf_token %}
+                            {{form | crispy}}
+                        </div>
+
+
+                        <div class="d-flex justify-content-center mt-3 login_container"  >
+                            <input class="btn login_btn" type="submit" value="ลงทะเบียน" style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c">
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-center links" style="text-shadow: 0 0 0.25px #1d1d1d, 0 0 1px #7c7c7c">
+                                หากเคยสมัครสมาชิกเอาไว้แล้ว? <a href="{% url 'signIn' %}" class="ml-2">เข้าสู่ระบบทันที</a>
+                            </div>
+                </div>
+
+                    </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

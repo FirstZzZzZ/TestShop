@@ -1,0 +1,150 @@
+{% extends 'layouts.html' %}
+{% block content%}
+{% load crispy_forms_tags %}
+
+
+
+
+<div class="container h-100 mt-4 font1">
+    <div class="d-flex justify-content-center h-100">
+        <div class="user_card">
+            <div class="d-flex justify-content-center font1 "style="text-shadow: 0 0 0.5px #1d1d1d, 0 0 1px #7c7c7c">
+                <h3 id="form-title">ข้อมูลส่วนตัวของท่าน</h3>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+
+                <form method="POST" action="">
+                    <div class="input-group-center mt-4" style="text-shadow: 0 0 0.25px #1d1d1d, 0 0 1px #7c7c7c">
+						{% csrf_token %}
+						{{form.as_p}}
+						<a href="http://127.0.0.1:8000/password/" class="button font1">เปลี่ยนรหัส</a>
+                    </div>
+					
+                       <div class="d-flex justify-content mt-3 login_container"  >
+                         <input class="btn login_btn" type="submit" value="บันทึก" style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c">
+                       </div>
+		
+                </form>		
+
+
+
+
+
+
+
+
+
+
+
+<style>
+	    .user_card {
+        width: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #F9F8F3;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+	.login_btn {
+            background: #82B400 !important;
+            color: white !important;
+	}
+	.nav01 {	
+	background-color: #F9F8F3;
+		}
+	.nav02 {	
+	background-color: #134115;
+		}
+	.nav03 {	
+	background-color: #82B400;
+	border-radius: 30px;
+		}
+	.font1{
+		  font-family: Prompt;
+		  font-weight: 300;
+		  color: #40403F;
+		}
+	.font2{
+		  font-family: Prompt;
+		  font-weight: 300;
+		  color: #40403F;
+		  border:#82B400 ;
+		}
+	.font3{
+		  font-family: Prompt;
+		  font-weight: 300;
+		  color: #F9F8F3;
+		}
+	
+	/* .body,html{
+		height: 100%;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background: #82B400 !important;
+		} */
+	
+		.searchbar{
+		margin-bottom: auto;
+		margin-top: auto;
+		height: 45px;
+		background-color: #ffff;
+		border-radius: 30px;
+		padding: 5px;
+		}
+	
+		.search_input{
+		color: white;
+		border: 0;
+		outline: 0;
+		background: none;
+		width: 75px;
+		caret-color:transparent;
+		line-height: 37px;
+		transition: width 0.4s linear;
+		}
+	
+		.searchbar:hover > .search_input{
+		padding: 0 10px;
+		width: 250px;
+		caret-color: #82B400;
+		transition: width 0.4s linear;
+		}
+	
+		.searchbar:hover > .search_icon{
+		background: white;
+		color: #82B400;
+		}
+	
+		.search_icon{
+		height: 35px;
+		width: 35px;
+		float: left;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		color:#82B400;
+		text-decoration:none;
+		}
+
+		.dropdown-item:active {
+        background-color: #82B400 !important;
+		}
+	</style>
+    
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}
+

@@ -1,0 +1,111 @@
+{% extends 'layouts.html' %}
+{% load static %}
+{% block content%}
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="jumbotron my-5 card69 font1">
+        <h1 class="display-4">บันทึกข้อมูลสำเร็จแล้ว</h1>
+        <p class="lead"></p>
+        <hr class="my-4">
+        <p></p>
+        <p class="lead">
+          <a class="btn login_btn2" href="{% url 'home' %}" role="button">กลับสู่หน้าแรก</a>
+        </p>
+      </div>
+</div>
+
+
+
+
+<style>
+  body,
+  html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #fff !important;
+  }
+  .card69{
+  background-color:#F9F8F3;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+  .user_card {
+      width: 350px;
+      margin-top: auto;
+      margin-bottom: auto;
+      background: #F9F8F3;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+
+  }
+
+  .form_container {
+      min-height: 100%;  
+      min-height: 20vh;
+
+      align-items: center;
+  }
+
+  #form-title{
+      color: #40403F;
+      
+  }
+
+  .login_btn {
+      width: 100%;
+      background: #82B400 !important;
+      color: white !important;
+  }  
+  .login_btn2 {
+      background: #82B400 !important;
+      color: white !important;
+  }
+  .login_btn:focus {
+      box-shadow: none !important;
+      outline: 0px !important;
+  }
+  .login_container {
+      padding: 0 2rem;
+  }
+  .input-group-text {
+      background: #f7ba5b !important;
+      color: white !important;
+      border: 0 !important;
+      border-radius: 0.25rem 0 0 0.25rem !important;
+  }
+  .input_user,
+  .input_pass:focus {
+      box-shadow: none !important;
+      outline: 0px !important;
+  }
+
+  #messages{
+      background-color: grey;
+      color: #fff;
+      padding: 10px;
+      margin-top: 10px;
+  }
+
+  .font1{
+  font-family: Prompt;
+    font-weight: 300;
+    color: #40403F;
+
+  }
+
+</style>
+{% endblock %}
+

@@ -1,0 +1,193 @@
+{% extends 'layouts.html' %}
+{% load static %}   
+{% block content%}
+
+
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #fff !important;
+    }
+    .user_card {
+        width: 350px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: #F9F8F3;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+
+    }
+
+    .form_container {
+        min-height: 100%;  
+        min-height: 20vh;
+
+        align-items: center;
+    }
+
+    #form-title{
+        color: #40403F;
+        
+    }
+
+    .login_btn {
+        background: #82B400 !important;
+        color: white !important;
+    }
+    .login_btn:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+    .login_container {
+        padding: 0 2rem;
+    }
+    .input-group-text {
+        background: #f7ba5b !important;
+        color: white !important;
+        border: 0 !important;
+        border-radius: 0.25rem 0 0 0.25rem !important;
+    }
+    .input_user,
+    .input_pass:focus {
+        box-shadow: none !important;
+        outline: 0px !important;
+    }
+
+    #messages{
+        background-color: grey;
+        color: #fff;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .font1{
+	  font-family: Prompt;
+      font-weight: 300;
+      color: #40403F;
+
+    }
+
+</style>
+
+
+
+
+
+
+<head>
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+
+</head>
+
+<body>
+<div class="container h-100 mt-5 font1" >
+    <div class="d-flex justify-content-center h-200 " >
+        <div class="user_card" style="width: 800px;" >
+            <div class="d-flex justify-content-center font1 "style="text-shadow: 0 0 0.5px #1d1d1d, 0 0 2px #7c7c7c, font-weight: 300">
+                <h2 id="form-title" >ข้อมูลส่วนตัวของท่าน</h2>
+            </div>
+            <div class="d-flex justify-content-center form_container ">
+                <div class="row p-3">
+                    <div class="col-mt">
+                        <table class="table thead" style=" font-size: large ;color: #40403F; ">
+                            <tbody>
+                                <tr>
+                                    <th scope="row " >ชื่อผู้ใช้</th>
+                                    <td>{{ user.username }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Email</th>
+                                    <td>{{ user.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ชื่อ</th>
+                                    <td>{{ user.first_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">นามสกุล</th>
+                                    <td>{{ user.last_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">วันที่ออกจากระบบล่าสุด</th>
+                                    <td>{{ user.last_login }}</td>
+                                </tr>
+    
+                            </tbody>
+                        </table>    
+                    <div class="mt-4">
+                        <a type="button" class="btn login_btn" data-toggle="button" aria-pressed="false" autocomplete="off"  href="{% url 'orderHistory' %}">
+                        ประวัติการสั่งซื้อ
+                        </a>
+                        <a type="button" class="btn login_btn" data-toggle="button" aria-pressed="false" autocomplete="off"  href="{% url 'Edit' %}">
+                            แก้ไข
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+                </div>
+            </div>
+
+{% endblock %}
+
+
+
+<div class="row my-4">
+    <div class="col-md-4"></div>
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                Customer Detail
+            </div>
+            <div class="row p-3">
+                <div class="col-md-8">
+                    <table class="table table-borderless">
+                        <thead>
+                            <span class="h4"></span class="h4">
+
+                            <hr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ชื่อผู้ใช้</th>
+                                <td>{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ชื่อ</th>
+                                <td>{{ user.first_name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">นามสกุล</th>
+                                <td>{{ user.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">วันที่ออกจากระบบล่าสุด</th>
+                                <td>{{ user.last_login }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <a type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false" autocomplete="off"  href="{% url 'orderHistory' %}">
+                        ประวัติการสั่งซื้อ
+                      </a>
+    </div>
+</div>
+
