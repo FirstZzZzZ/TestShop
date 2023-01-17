@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from email.mime import base
 import os
 
-from dotenv import load_dotenv
 from pathlib import Path
 
 load_dotenv()
@@ -54,7 +53,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     "daterange.apps.DateRangeFilterConfig",
     'stripe',
-    'qrcode',
     "admincharts",
     'customAdmin'
 ]
@@ -145,12 +143,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-BASE_DIR.joinpath('static')
-]
-STATIC_ROOT = '/var/www/rycc/static'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR.joinpath('media/')
 
 
 # Default primary key field type
