@@ -19,7 +19,6 @@ django-flat-theme==1.1.4
 django-on-heroku==1.1.2
 django-suit @ https://github.com/darklow/django-suit/tarball/v2
 fonttools==4.37.4
-gunicorn==20.1.0
 idna==3.4
 ImageHash==4.3.1
 libscrc==1.8.1
