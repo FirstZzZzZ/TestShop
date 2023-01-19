@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'some_random_default_string')
 #don't run with debug turned on in production
 DEBUG = os.environ.get('DEBUG',False)
 
-# ALLOWED_HOSTS = ['192.168.1.100']
+ALLOWED_HOSTS = ['*']
 
 STATIC_URL='/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
