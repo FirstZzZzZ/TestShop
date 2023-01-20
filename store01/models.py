@@ -36,8 +36,8 @@ class product01(models.Model):
     def __str__(self):
          return self.name
     
-    #def admin_image(self):
-       # return mark_safe('<img src="{}" width="100" />'.format(self.image.url))
+    def admin_image(self):
+       return mark_safe('<img src="{}" width="100" />'.format(self.image.url))
         
     # admin_image.short_description = 'Image'
     # admin_image.allow_tags = True
