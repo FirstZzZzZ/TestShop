@@ -68,7 +68,7 @@
     {% for product01 in product04 %}
     <div class="gallery col-lg-4 col-md-6" >
       <div class="content card69" style="width:100%">
-        <img  class="img2" style="object-fit:cover;" src="{{product01.image.url}}" >
+        <img  class="img2" style="object-fit:cover;" src="{{ product01.image.url|default_if_none:'#' }}" >
         <h1></h1>
         <h2>{{product01.name}}</h2>
         <h5>{{product01.price|intcomma}} ฿</h5>
