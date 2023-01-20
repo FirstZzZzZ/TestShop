@@ -110,8 +110,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'storedbkaset',
         'USER': 'storedbkaset',
-        'PASSWORD': 'AVNS_i7DSnZWbdT9S-Vw1cFV',
-        'HOST': 'app-42946217-3ab1-46b2-a4c4-741c991ae786-do-user-13321159-0.b.db.ondigitalocean.com',
+        'PASSWORD': 'AVNS_q99u6JcDdi17X6sMS0r',
+        'HOST': 'app-93a7c31b-4be3-414f-a306-e38dd7cc4185-do-user-13321159-0.b.db.ondigitalocean.com',
         'PORT': '25060',
     }
 }
