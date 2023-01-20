@@ -32,6 +32,9 @@ class product01(models.Model):
     updated=models.DateTimeField(auto_now=True,verbose_name = "วันที่แก้ไขข้อมูลสินค้า")
     category=models.ForeignKey(category01,on_delete=models.CASCADE,verbose_name = "ประเภทสินค้า")
 
+    def photo_url(self):
+    if self.photo and hasattr(self.photo, 'url'):
+        return self.photo.url
 
     def __str__(self):
          return self.name
