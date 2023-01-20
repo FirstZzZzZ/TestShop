@@ -24,7 +24,7 @@ class product01(models.Model):
     slug=models.SlugField(max_length=255,unique=True,null=False,verbose_name = "ชื่อสินค้าภาษาอังกฤษ")
     description=models.TextField(blank=True,verbose_name = "รายละเอียดสินค้า")
     price=models.DecimalField(max_digits=10,decimal_places=2,verbose_name = "ราคา")
-    image=models.ImageField(upload_to="media/product/",blank=True,verbose_name = "ภาพสินค้า")
+    image=models.ImageField(upload_to="media/",blank=True,verbose_name = "ภาพสินค้า")
     stock=models.IntegerField(verbose_name = "จำนวนสินค้าที่พร้อมขาย")
     unit=models.CharField(max_length=255,blank=True,verbose_name = "หน่วยของสินค้า(ถุง/กล่อง/ชิ้น/ฯลฯ)")
     available=models.BooleanField(default=True,verbose_name = "สินค้าพร้อมขายหรือไม่")
