@@ -105,6 +105,16 @@ WSGI_APPLICATION = 'ShopKaset.wsgi.application'
 #        'PORT': '',
 #    }
 #}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'storedbkaset',
+        'USER': 'storedbkaset',
+        'PASSWORD': 'AVNS_i7DSnZWbdT9S-Vw1cFV',
+        'HOST': 'app-42946217-3ab1-46b2-a4c4-741c991ae786-do-user-13321159-0.b.db.ondigitalocean.com',
+        'PORT': '25060',
+    }
+}
 
 
 
