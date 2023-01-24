@@ -17,7 +17,7 @@
                     <div class="input-group-center mt-4" style="text-shadow: 0 0 0.25px #1d1d1d, 0 0 1px #7c7c7c">
 						{% csrf_token %}
 						{{form.as_p}}
-						<a href="http://127.0.0.1:8000/password/" class="button font1">เปลี่ยนรหัส</a>
+						<a href="{% url 'password' %}" class="button font1">เปลี่ยนรหัส</a>
                     </div>
 					
                        <div class="d-flex justify-content mt-3 login_container"  >
