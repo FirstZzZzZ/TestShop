@@ -127,14 +127,13 @@
                                 </tr>
     
                             </tbody>
-                        </table>    
+                        </table>
+			    
                     <div class="mt-4">
-                        <a type="button" class="btn login_btn" data-toggle="button" aria-pressed="false" autocomplete="off"  href="{% url 'orderHistory' %}">
-                        ประวัติการสั่งซื้อ
-                        </a>
-                        <a type="button" class="btn login_btn" data-toggle="button" aria-pressed="false" autocomplete="off"  href="{% url 'Edit' %}">
-                            แก้ไข
-                        </a>
+                        <div class="d-flex justify-content mt-3 login_container">
+                            <a class="btn login_btn mr-3" href="{% url 'orderHistory' %}" style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c">ประวัติการสั่งซื้อ</a>
+                            <a class="btn login_btn" href="{% url 'Edit' %}" style="text-shadow: 0 0 3px #1d1d1d, 0 0 5px #7c7c7c">แก้ไข</a>
+                        </div>
                     </div>
 
                 </form>
@@ -143,51 +142,4 @@
             </div>
 
 {% endblock %}
-
-
-
-<div class="row my-4">
-    <div class="col-md-4"></div>
-    <div class="col-md-9">
-        <div class="card">
-            <div class="card-header bg-success text-white">
-                Customer Detail
-            </div>
-            <div class="row p-3">
-                <div class="col-md-8">
-                    <table class="table table-borderless">
-                        <thead>
-                            <span class="h4"></span class="h4">
-
-                            <hr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">ชื่อผู้ใช้</th>
-                                <td>{{ user.username }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Email</th>
-                                <td>{{ user.email }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ชื่อ</th>
-                                <td>{{ user.first_name }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">นามสกุล</th>
-                                <td>{{ user.last_name }}</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">วันที่ออกจากระบบล่าสุด</th>
-                                <td>{{ user.last_login }}</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <a type="button" class="btn btn-dark" data-toggle="button" aria-pressed="false" autocomplete="off"  href="{% url 'orderHistory' %}">
-                        ประวัติการสั่งซื้อ
-                      </a>
-    </div>
-</div>
 
