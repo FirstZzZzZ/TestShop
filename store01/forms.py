@@ -13,6 +13,7 @@ class SignUpForm(UserCreationForm):
     first_name=forms.CharField(max_length=100,required=True,label='ชื่อ')
     last_name=forms.CharField(max_length=100,required=True,label='นามสกุล')
     email=forms.EmailField(max_length=100,label='ที่อยู่อีเมล(E-mail)',)
+    phone_number=forms.CharField(max_length=10,label='เบอร์โทร',)
     # password1=forms.Field(error_messages={'required': 'Please enter your name'})
     # password2=forms.Field(error_messages={'required': 'Please enter your name'})
 
@@ -34,6 +35,7 @@ class UserEdit(UserChangeForm):
     # last_name=forms.CharField(max_length=100,required=True)
     # email=forms.EmailField(max_length=250,)  
     username=forms.CharField(max_length=100,required=True,label='ชื่อผู้ใช้')
+    phone_number=forms.CharField(max_length=10,label='เบอร์โทร',)
     password = auth_forms.ReadOnlyPasswordHashField(label="รหัสผ่าน",
         help_text="คลิกที่ 'เปลี่ยนรหัส' เพื่อเปลี่ยนรหัสผ่าน")
     class Meta:
