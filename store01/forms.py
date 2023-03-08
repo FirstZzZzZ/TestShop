@@ -58,11 +58,14 @@ class BankTransferForm(forms.ModelForm):
         model = BankTransfer
         fields = ['name', 'address', 'city', 'postcode', 'email', 'money_transfer_slip']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].initial = self.request.session.get('email')
+
     def get_initial(self):
-            initial = super().get_initial()
-            initial['name'] = self.request.user.username
-            initial['email'] = self.request.user.email
-            return initial
+        initial = super().get_initial()
+        initial['name'] = self.request.user.username
+        return initial
 
 class PasswordChangeForm(BasePasswordChangeForm):
     error_messages = {
